@@ -1,0 +1,23 @@
+* schmitt_trigger
+.include ./t14y_tsmc_025_level3.txt
+
+m1 vad vpos vx -12 cmosn w=120u l=0.18u
+m2 vout vneg vx -12 cmosn w=120u l=0.18u
+m3 vad vad vdd vdd cmosp w=180u l=0.18u
+m4 vout vad vdd vdd cmosp w=180u l=0.18u
+r1 vout vpos 1k
+r2 vpos vj 1k
+
+
+v_dd vdd 0 12
+i_ss vx vg 4m
+v_g vg 0 -12
+v_in vneg 0 6 PULSE(-6 6 0 0 0 30u 60u)
+v_ref vj 0 2
+
+.control
+tran 0.1n 160u
+
+plot tran1.vout tran1.vj tran1.vneg tran1.vpos title 'Gain'
+.endc
+.end
