@@ -1,0 +1,29 @@
+
+* IA
+.include ./t14y_tsmc_025_level3.txt
+
+m1 vad v+ vx -12 cmosn w=120u l=0.18u
+m2 vout v- vx -12 cmosn w=120u l=0.18u
+m3 vad vad vdd vdd cmosp w=240u l=0.18u
+m4 vout vad vdd vdd cmosp w=240u l=0.18u
+r1 v- vout 3k
+r2 v- vr1 1k
+r3 v- vr2 2k
+v_dd vdd 0 12
+v_1 v+ 0 0
+v_a vr1 0 1 SIN(0 1 2Meg 0 0)
+v_b vr2 0 1 SIN(0 1 2Meg 0 0)
+i_ss vx vg 3m
+v_g vg 0 -12
+
+.control
+tran 0.1n 18u
+plot tran1.vr1 tran1.vr2 tran1.vout title 'Gain'
+.endc
+.control
+tran 0.1n 18u
+
+plot vout vs vr1 title 'tf1'
+plot vout vs vr2 title 'tf2'
+.endc
+.end
