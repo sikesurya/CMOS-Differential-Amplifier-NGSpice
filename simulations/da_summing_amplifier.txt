@@ -1,0 +1,34 @@
+
+*summing amplifier using DA (PMOS current mirror (active) load)
+.include ./t14y_tsmc_025_level3.txt
+m1 d1 g1 s1 0 cmosn w=240u l=0.18u
+m2 d2 g2 s1 0 cmosn w=240u l=0.18u
+m3 d1 d1 vdd vdd cmosp w=120u l=0.18u
+m4 d2 d1 vdd vdd cmosp w=120u l=0.18u
+iss vx 0 4m
+*voltage sources
+v_dd vdd 0 12
+v_in1 n1 0 100m sin(0 1 2meg 0 0)
+v_in2 n2 0 100m sin(0 2 2meg 0 0)
+v_in3 n3 0 100m sin(0 3 2meg 0 0)
+v_ref g1 0 0
+
+*summing resistors
+
+rs1 n1 g2 1k
+rs2 n2 g2 1k
+rs3 n3 g2 1k
+rf d2 g2 20k
+
+v_ids1 s1 vx 0
+v_ids2 s2 vx 0
+
+
+*transient response
+.control
+tran 0.1n 2u
+let vout_tran = d2
+plot vout_tran n1 n2 n3 title 'transient response'
+.endc
+.end
+
