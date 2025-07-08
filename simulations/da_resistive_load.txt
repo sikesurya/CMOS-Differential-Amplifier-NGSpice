@@ -1,0 +1,17 @@
+*differential amplifier
+.include ./t14y_tsmc_025_level3.txt
+m1 d1 g1 s1 0 cmosn w=5u l=1u
+m2 d2 g2 s1 0 cmosn w=5u l=1u
+r1 vdd d1 20k
+r2 vdd d2 20k
+i1 s1 0 dc 100u ac 1u
+*voltage sources
+v_dd vdd 0 3.3
+v_in1 g1 0 sin(0 150m 1meg 0 0 0)
+v_in2 g2 0 sin(0 150m 1meg 0 0 180)
+*transient response
+.control
+tran 0.01u 2u
+plot tran1.d1 tran1.d2 tran1.g1 tran1.g2 title 'transient response'
+.endc
+.end
