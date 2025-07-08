@@ -26,7 +26,7 @@ This project involves the design and simulation of a differential amplifier usin
 
 ## 📜 Report
 
-The full project report is available in `docs/Vidyut-Differential-Amplifier-2025-Report.pdf`.
+The full project report is available in `Vidyut-Differential-Amplifier-2025-Report.pdf`.
 
 ## 🧠 Learnings
 
