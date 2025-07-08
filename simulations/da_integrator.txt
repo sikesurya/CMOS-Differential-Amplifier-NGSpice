@@ -1,0 +1,24 @@
+
+* Integrator
+.include ./t14y_tsmc_025_level3.txt
+
+m1 vad v+ vx -12 cmosn w=120u l=0.18u
+m2 vout v- vx -12 cmosn w=120u l=0.18u
+m3 vad vad vdd vdd cmosp w=180u l=0.18u
+m4 vout vad vdd vdd cmosp w=180u l=0.18u
+rf v- vout 10k
+c1 v- vout 1n
+r2 v- vr1 1k
+
+
+v_dd vdd 0 12
+v_1 v+ 0 0
+i_ss vx vg 4m
+v_g vg 0 -12
+v_in vr1 0 4 PULSE(-4 4 1n 0 0 0.5u 1u)
+
+.control
+tran 0.1n 50u
+plot tran1.vr1 tran1.vout title 'Gain'
+.endc
+.end
