@@ -42,7 +42,4 @@ The full project report is available in `Vidyut-Differential-Amplifier-2025-Repo
 ---
 
 
-<img width="1047" alt="Screenshot 2025-07-10 at 2 08 09 PM" src="https://github.com/user-attachments/assets/06b0b94f-8d85-4e31-9e66-140965dd3fea" />
-
-
 
